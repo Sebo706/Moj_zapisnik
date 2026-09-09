@@ -1,0 +1,16 @@
+{
+  "name": "Môj zápisník",
+  "short_name": "Môj zápisník",
+  "description": "Jednoduchý osobný zápisník úloh, poznámok, nákupov a nápadov.",
+  "lang": "sk",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3faf9",
+  "theme_color": "#078b91",
+  "icons": [
+    {"src":"assets/icons/app-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/icons/app-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/icons/app-icon-1024.png","sizes":"1024x1024","type":"image/png","purpose":"any maskable"}
+  ]
+}

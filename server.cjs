@@ -1,0 +1,6 @@
+const http=require('node:http');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=__dirname;
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.webmanifest':'application/manifest+json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'};
+http.createServer((req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);const file=path.resolve(root,'.'+(name==='/'?'/index.html':name));if(!file.startsWith(root+path.sep)||!['/index.html','/manifest.webmanifest','/css/','/js/','/assets/'].some(p=>p.endsWith('/')?name.startsWith(p):name===p)&&name!=='/'){res.writeHead(403);return res.end('Forbidden');}fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);return res.end('Not found');}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store','Content-Security-Policy':"default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(data);});}catch{res.writeHead(400);res.end('Bad request');}}).listen(4174,'127.0.0.1',()=>console.log('Môj zápisník: http://localhost:4174 (ukončenie: Ctrl+C)'));

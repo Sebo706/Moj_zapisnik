@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#078b91">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Môj zápisník">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <title>Môj zápisník</title><link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header><div class="brand"><img class="brand-mark" src="assets/icons/app-icon-192.png" alt=""><span>Môj zápisník<small>Spomenúť si. Zapísať. Vybaviť.</small></span></div><span class="demo-label">OSOBNÁ TESTOVACIA VERZIA</span></header>
+    <main id="main" tabindex="-1"></main>
+    <nav aria-label="Hlavné menu"><button data-nav="today" aria-label="Dnes"><span aria-hidden="true" class="nav-symbol">⌂</span><span>Dnes</span></button><button data-nav="new" aria-label="Nový"><span aria-hidden="true" class="nav-symbol">⊕</span><span>Nový</span></button><button data-nav="records" aria-label="Záznamy"><span aria-hidden="true" class="nav-symbol">▤</span><span>Záznamy</span></button><button data-nav="ideas" aria-label="Nápady"><span aria-hidden="true" class="nav-symbol">♧</span><span>Nápady</span></button></nav>
+    <p class="local-note">Len vymyslené osobné údaje • Uložené v tomto prehliadači</p>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="photo-dialog"><button class="secondary" id="close-photo">Zavrieť fotografiu ✕</button><img alt="Fotografia záznamu" id="large-photo"></dialog>
+  <dialog id="share-dialog"><h2>Text na zdieľanie</h2><p class="hint">Prehliadač neotvoril ponuku zdieľania ani schránku. Označený text môžete skopírovať ručne.</p><textarea id="share-text" readonly></textarea><button class="primary" id="select-share-text">Označiť text</button><button class="secondary" id="close-share">Zavrieť</button></dialog>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
