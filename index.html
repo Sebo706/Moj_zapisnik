@@ -21,6 +21,8 @@
   <div id="toast" role="status" aria-live="polite"></div>
   <dialog id="photo-dialog"><button class="secondary" id="close-photo">Zavrieť fotografiu ✕</button><img alt="Fotografia záznamu" id="large-photo"></dialog>
   <dialog id="share-dialog"><h2>Text na zdieľanie</h2><p class="hint">Prehliadač neotvoril ponuku zdieľania ani schránku. Označený text môžete skopírovať ručne.</p><textarea id="share-text" readonly></textarea><button class="primary" id="select-share-text">Označiť text</button><button class="secondary" id="close-share">Zavrieť</button></dialog>
+  <input type="file" id="import-input" accept=".json,application/json" hidden>
+  <dialog id="import-dialog"><h2>Pridať prijatý záznam?</h2><p class="hint">Skontrolujte, čo sa uloží do tohto zápisníka.</p><div id="import-summary" class="import-summary"></div><div class="dialog-actions"><button class="primary" id="confirm-import">Pridať do zápisníka</button><button class="secondary" id="cancel-import">Zrušiť</button></div></dialog>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>

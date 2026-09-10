@@ -70,3 +70,26 @@ button.action.write{box-shadow:inset 0 1px 0 #ffffff65,0 4px 0 #50499a,0 7px 12p
 .card.selected{border-color:#56bfc1;background:#f2fbfa;box-shadow:0 0 0 2px #a7e1df}
 .record-select input:checked{background:#078b91;border-color:#078b91}
 .idea-banner{background:#e4f5f0;border-color:#cce9df}
+
+/* Jednoduché filtre, kalendár a bezpečný import zdieľaných záznamov. */
+.badge.low{background:#f2f4f7;color:#68768a}
+.card-icon.low{background:#f0f3f7;color:#738096}
+.calendar-button{color:#745313;background:#fff2cc;padding:10px 13px;white-space:nowrap}
+.simple-filters{align-items:center;margin-bottom:12px}
+.more-filters{margin-left:auto;border-radius:25px;padding:10px 17px}
+.advanced-filters{background:#fff;border:1px solid #dcebe9;border-radius:16px;padding:16px;margin-bottom:16px}
+.advanced-filters[hidden]{display:none}
+.filter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.filter-grid label{font-size:12px;margin-bottom:6px;color:var(--muted)}
+.import-summary{display:grid;gap:10px;margin:14px 0 20px}
+.import-summary div{padding:12px;border-radius:12px;background:#f3faf9;border:1px solid #dcebe9}
+.import-summary strong,.import-summary span{display:block;overflow-wrap:anywhere}
+.import-summary span{font-size:13px;color:var(--muted);margin-top:5px}
+.dialog-actions{display:flex;gap:10px;flex-wrap:wrap}
+#import-dialog{width:min(620px,calc(100% - 28px))}
+@media(max-width:700px){
+  .more-filters{margin-left:0;flex:1 1 100%}
+  .filter-grid{grid-template-columns:1fr}
+  .card-actions{flex-wrap:wrap}
+  .calendar-button,.share-button,.done-button{font-size:12px;padding:9px}
+}

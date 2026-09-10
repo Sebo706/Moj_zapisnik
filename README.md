@@ -18,9 +18,10 @@ Spúšťač použije bezplatný Node.js dostupný v prostredí Codex. Neinštalu
 - Typy Úloha, Poznámka, Nákup a Nápad.
 - Kategórie Osobné, Rodina, Domácnosť, Práca, Nákupy, Zdravie, Financie a Cestovanie.
 - Lokálne pravidlá, ktoré z textu navrhnú typ, kategóriu, prioritu, miesto a termín.
-- Vyhľadávanie, filtre, úpravu, označenie Hotovo a opätovné otvorenie.
+- Vyhľadávanie, jednoduché aj rozšírené filtre, úpravu, označenie Hotovo a opätovné otvorenie.
 - Samostatnú obrazovku Nápady.
-- Jednotlivé aj hromadné zdieľanie textu; fotografia sa pridá, ak to zariadenie podporuje.
+- Jednorazový prenos záznamu odkazom alebo súborom vrátane fotografie.
+- Pridanie termínu do kalendára s upozornením tri dni vopred a v deň termínu.
 - Ikonu MZ pripravenú pre pridanie na plochu telefónu.
 
 ## Praktický test
@@ -32,7 +33,9 @@ Spúšťač použije bezplatný Node.js dostupný v prostredí Codex. Neinštalu
 5. Vytvorte „Kúpiť mlieko dnes cestou domov.“ Aplikácia navrhne Nákup, Nákupy a Obchod.
 6. Vytvorte „Nápad: cez víkend naplánovať rodinný výlet.“ Položka sa uloží medzi Nápady.
 7. Pridajte necitlivú skúšobnú fotografiu, obnovte stránku a fotografiu znova otvorte.
-8. Vo Všetkých záznamoch vyskúšajte filtre, hľadanie, jednotlivé zdieľanie a Vybrať všetky.
+8. Vo Všetkých záznamoch vyskúšajte Otvorené, Po termíne, Hotové a tlačidlo Ďalšie filtre.
+9. Pri zázname s termínom stlačte Kalendár, otvorte súbor `.ics` a potvrďte jeho uloženie v kalendári.
+10. Záznam bez fotografie zdieľajte ako odkaz. Záznam s fotografiou zdieľajte ako súbor a v druhom prehliadači ho vyberte cez Importovať záznam.
 
 ## Ukladanie a obmedzenia
 
@@ -40,9 +43,13 @@ Záznamy a zmenšené fotografie sa ukladajú bezplatne do IndexedDB v danom pre
 
 Hlas skúša iba miestne rozpoznávanie slovenčiny dostupné v zariadení. Ak ho prehliadač nepodporuje, zostáva písanie. Aplikácia nič nesťahuje a nezapína serverové rozpoznávanie.
 
-Automatické zaradenie používa jednoduché slovenské kľúčové slová. Rozumie výrazom dnes, zajtra, pozajtra, dňom týždňa, platným dátumom, času, slovám ráno a večer. Návrh sa dá vždy ručne opraviť.
+Automatické zaradenie používa jednoduché slovenské kľúčové slová. Rozumie výrazom dnes, zajtra, pozajtra, dňom týždňa, platným dátumom, času, slovám ráno a večer. Výrazy „nízka priorita“, „keď bude čas“, „nesúri“, „môže počkať“ a „niekedy“ navrhnú nízku prioritu. Návrh sa dá vždy ručne opraviť.
 
-Zdieľanie otvorí systémovú ponuku zariadenia, kde používateľ sám vyberie e-mail alebo chat. Ak ponuka nie je dostupná, text sa skopíruje. Aplikácia sama nič neposiela ani sa nepripája k účtom.
+Ranný prehľad zoradí vysokú, normálnu a nízku prioritu. Nízka priorita bez termínu zostáva iba vo Všetkých záznamoch; na hlavnej stránke sa zobrazí v deň termínu alebo po termíne. Každá otvorená úloha po termíne zostáva v prehľade, kým ju používateľ nedokončí alebo neposunie termín.
+
+Záznam bez fotografie sa zdieľa ako odkaz. Príjemca ho otvorí a potvrdí pridanie. Záznam s fotografiou alebo viac záznamov sa prenesie v jednom súbore JSON cez e-mail alebo chat; príjemca použije Importovať záznam. Opakovaný import rovnakého zdroja nevytvorí duplikát. Ide o jednorazovú kópiu, nie synchronizáciu. Aplikácia sama nič neposiela ani sa nepripája k účtom.
+
+Tlačidlo Kalendár vytvorí miestny súbor `.ics`. Použije čas z úlohy alebo 08:00, ak čas chýba, a pripraví upozornenie tri dni pred termínom aj v čase termínu. Používateľ otvorí súbor vo svojom kalendári a potvrdí uloženie. Nie je potrebné prihlásenie ani platené API; presné prevzatie upozornení závisí od použitého kalendára.
 
 ## Súbory
 

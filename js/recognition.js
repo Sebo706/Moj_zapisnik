@@ -10,6 +10,7 @@ export function recognize(text, now = new Date()) {
   else if(/\b(poznamka|zapamatat|recept|informacia|kontakt)\b/.test(s)) result.type='Poznámka';
 
   if(/\b(urgentne|dolezite|nezabudnut|okamzite|nutne)\b/.test(s) && !/\b(nie je urgentne|nie je dolezite|nie je nutne)\b/.test(s)) result.priority='Vysoká';
+  else if(/\b(nizka priorita|ked bude cas|nesuri|moze pockat|niekedy)\b/.test(s)) result.priority='Nízka';
 
   if(result.type==='Nákup') result.category='Nákupy';
   else if(/rodin|\bmam|\botec|rodic|\bdet|dcer|\bsyn|manzel/.test(s)) result.category='Rodina';
